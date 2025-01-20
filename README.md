@@ -46,3 +46,7 @@ Accuracy
 Precision
 Recall
 F1-Score
+
+
+Download the dataset using the following link:
+https://www.kaggle.com/datasets/jtiptj/chest-xray-pneumoniacovid19tuberculosis
