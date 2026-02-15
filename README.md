@@ -1,10 +1,10 @@
-<h1 align="center">🫁 Deep Learning Tuberculosis Detection from Chest X-Rays</h1>
+<h1 align="center"> Deep Learning Tuberculosis Detection from Chest X-Rays</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/PyTorch-DeepLearning-red?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/MobileNetV2-TransferLearning-blue?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/MedicalImaging-ComputerVision-green?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Kaggle-Dataset-orange?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/KaggleDataset-orange?style=for-the-badge"/>
 </p>
 
 ---
