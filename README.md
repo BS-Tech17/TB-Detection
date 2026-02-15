@@ -1,184 +1,156 @@
-# Tuberculosis Detection from Chest X-Rays using Deep Learning
+<h1 align="center">🫁 Deep Learning Tuberculosis Detection from Chest X-Rays</h1>
 
-##  Overview
-
-This project implements a deep learning pipeline for detecting **Tuberculosis (TB)** from chest X-ray images using transfer learning with MobileNetV2 in PyTorch.
-It includes preprocessing, training, validation, evaluation via confusion matrices, and an interactive inference loop for real-time prediction.
-
-The system demonstrates how AI can assist in medical image screening workflows by identifying TB-related patterns in radiographic scans.
-
----
-
-## 🎯 Objectives
-
-* Build a binary classifier (TB vs Normal)
-* Use transfer learning for improved performance
-* Evaluate model accuracy and confusion matrices
-* Enable prediction on unseen X-ray images
-* Save and reload trained models for reuse
+<p align="center">
+  <img src="https://img.shields.io/badge/PyTorch-DeepLearning-red?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/MobileNetV2-TransferLearning-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/MedicalImaging-ComputerVision-green?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Kaggle-Dataset-orange?style=for-the-badge"/>
+</p>
 
 ---
 
-## 🧰 Software Requirements
+<h2>📌 Overview</h2>
+
+This project implements an AI-based diagnostic support system that detects **Tuberculosis (TB)** from chest X-ray images using transfer learning with MobileNetV2 in PyTorch.
+
+The model is trained on a labeled dataset sourced from **Kaggle**, applying augmentation, validation monitoring, and confusion matrix evaluation to assess performance.
+
+It demonstrates integration of:
+
+* Deep Learning
+* Medical Image Analysis
+* Transfer Learning
+* Model Deployment for Inference
+
+The system is designed as an academic exploration of AI-assisted radiological screening workflows.
+
+---
+
+<h2>🏗 System Flow</h2>
+
+Dataset Images
+→ Preprocessing & Augmentation
+→ MobileNetV2 Training
+→ Evaluation Metrics
+→ Model Save (.pth)
+→ Interactive Prediction Loop
+
+---
+
+<h2>📁 Project Structure</h2>
+
+```
+main.py
+tb_detection_pytorch_model.pth
+README.md
+```
+
+---
+
+<h2>🧰 Requirements</h2>
+
+<h3>Hardware</h3>
+
+* CPU (Minimum)
+* GPU with CUDA support (Recommended)
+* 8GB RAM or higher
+
+<h3>Software</h3>
 
 * Python 3.8+
 * PyTorch
 * Torchvision
-* NumPy
 * Pillow
+* NumPy
 * Scikit-learn
 
-### Installation
+---
 
-```bash
+<h2>⚙️ Dependency Installation</h2>
+
+Install required packages:
+
+```
 pip install torch torchvision numpy pillow scikit-learn
 ```
 
----
+Verify installation:
 
-## 💻 Hardware Requirements
-
-* CPU (minimum)
-* GPU with CUDA support (recommended)
-* 8GB RAM or higher
-
-The script automatically selects GPU if available.
+```
+python -c "import torch, torchvision, numpy, PIL, sklearn"
+```
 
 ---
 
-## 📂 Dataset Structure
+<h2>📊 Dataset Source</h2>
 
-```
-xyz/
-│
-├── test/
-│   ├── Normal/
-│   └── Tuberculosis/
-│
-├── val/
-│   ├── Normal/
-│   └── Tuberculosis/
-```
+Chest X-ray data used for training and validation was obtained from **Kaggle** for academic experimentation.
 
-Each class folder should contain labeled chest X-ray images.
+Ensure dataset paths inside the script are updated to match your local storage before running.
 
 ---
 
-## ⚙️ Methodology
+<h2>▶️ Running the Model</h2>
 
-### 1️⃣ Data Preprocessing
+1️⃣ Configure dataset paths in the script
 
-* Resize images to 224×224
-* Augmentation:
-
-  * Horizontal flip
-  * Rotation
-  * Color jitter
-* Normalize using ImageNet statistics
-
-### 2️⃣ Model Architecture
-
-* Backbone: MobileNetV2 (pretrained)
-* Modified classifier:
+2️⃣ Start training
 
 ```
-Linear Layer → 1 Output Node
-```
-
-### 3️⃣ Training Setup
-
-* Loss Function: Binary Cross Entropy with Logits
-* Optimizer: Adam
-* Epochs: 10
-* Batch Size: 32
-
-### 4️⃣ Evaluation
-
-* Accuracy tracking
-* Confusion matrix computation
-* Validation loss monitoring
-
-### 5️⃣ Inference
-
-* Model weights saved to `.pth`
-* Reloaded for predictions
-* Interactive CLI input loop
-
----
-
-## ▶️ Execution Steps
-
-### Train the model
-
-```bash
 python main.py
 ```
 
-### Output
-
-* Epoch metrics printed
-* Model saved as:
+3️⃣ Model weights saved automatically
 
 ```
 tb_detection_pytorch_model.pth
 ```
 
-### Run Predictions
+4️⃣ Enter image path for prediction
 
-After training, the script prompts:
+Type:
 
 ```
-Enter the path of the X-ray image
+exit
 ```
 
-Type `exit` to stop.
+to stop inference loop.
 
 ---
 
-## 📊 Output Metrics
+<h2>📈 Evaluation Output</h2>
 
-* Training Accuracy
-* Validation Loss
-* Confusion Matrices
-* Prediction Results
-
----
-
-## 🔬 Applications
-
-* AI-assisted radiology research
-* Medical imaging experimentation
-* Academic demonstrations
+* Epoch Loss
+* Accuracy Tracking
+* Training Confusion Matrix
+* Validation Confusion Matrix
+* Prediction Labels
 
 ---
 
-## 🚧 Limitations
+<h2>⚠️ Do's & Don'ts</h2>
 
-* Depends on dataset quality
-* Binary classification only
-* Not clinically validated
+✔ Ensure dataset paths are correct
+✔ Use GPU for faster training
+✔ Maintain balanced dataset if possible
+✔ Normalize images consistently
+
+✘ Do not use for real medical diagnosis
+✘ Avoid mixing image resolutions without preprocessing
+✘ Avoid interrupting training during weight saving
 
 ---
 
-## 🔮 Future Enhancements
+<h2>🚀 Future Enhancements</h2>
 
-* Web deployment (Streamlit)
-* Explainability via Grad-CAM
+* Grad-CAM explainability visualization
+* Web deployment using Streamlit
 * Multi-disease classification
-* ROC/AUC metrics
-* Hyperparameter tuning
+* ROC / AUC metric tracking
+* Hyperparameter tuning automation
 
 ---
 
-## ⚠️ Disclaimer
-
-This project is intended strictly for educational and research purposes.
-It must not be used for real medical diagnosis.
-
----
-
-## 👩‍💻 Author
-
-**Bhoomika Saxena**
-B.Tech — CSE (IoT & Intelligent Systems)
-AI • IoT • Computer Vision
+<p align="center">
+Built for exploration in AI-driven Medical Imaging & Intelligent Diagnostic Systems
+</p>
