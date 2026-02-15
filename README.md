@@ -1,52 +1,184 @@
-🩺 Overview
+# 🫁 Tuberculosis Detection from Chest X-Rays using Deep Learning
 
-This repository implements a deep learning-based solution for detecting tuberculosis (TB) in chest X-ray images using MobileNetV2 and PyTorch. MobileNetV2, a lightweight and efficient convolutional neural network, is well-suited for medical image analysis tasks, making it an ideal choice for this project.
+## 📌 Overview
 
-The model is trained to classify X-ray images as either:
+This project implements a deep learning pipeline for detecting **Tuberculosis (TB)** from chest X-ray images using transfer learning with MobileNetV2 in PyTorch.
+It includes preprocessing, training, validation, evaluation via confusion matrices, and an interactive inference loop for real-time prediction.
 
-Tuberculosis Positive
-Tuberculosis Negative
+The system demonstrates how AI can assist in medical image screening workflows by identifying TB-related patterns in radiographic scans.
 
+---
 
-🚀 Features
+## 🎯 Objectives
 
-Lightweight and efficient architecture using MobileNetV2.
-High accuracy in detecting TB from chest X-ray images.
-Customizable training pipeline for further fine-tuning.
-Data augmentation for improved generalization.
-Detailed metrics: confusion matrix, precision, recall, F1-score, and accuracy.
+* Build a binary classifier (TB vs Normal)
+* Use transfer learning for improved performance
+* Evaluate model accuracy and confusion matrices
+* Enable prediction on unseen X-ray images
+* Save and reload trained models for reuse
 
-📂 Project Structure
-├── data
-│   ├── train
-│   │   ├── TB_Positive
-│   │   ├── TB_Negative
-│   ├── val
-│   │   ├── TB_Positive
-│   │   ├── TB_Negative
-│   ├── test
-│       ├── TB_Positive
-│       ├── TB_Negative
-├── src
-│   ├── tb.py            # Defines the Python code for the model
+---
 
-🔧 Setup Instructions
+## 🧰 Software Requirements
 
-Clone the Repository
+* Python 3.8+
+* PyTorch
+* Torchvision
+* NumPy
+* Pillow
+* Scikit-learn
 
-git clone 7https://github.com/BS-Tech17/TB-Detection.git
-cd tuberculosis-TB-Detection
+### Installation
 
-📊 Results and Metrics
+```bash
+pip install torch torchvision numpy pillow scikit-learn
+```
 
-The following metrics are calculated during evaluation:
+---
 
-Confusion Matrix
-Accuracy
-Precision
-Recall
-F1-Score
+## 💻 Hardware Requirements
 
+* CPU (minimum)
+* GPU with CUDA support (recommended)
+* 8GB RAM or higher
 
-Download the dataset using the following link:
-https://www.kaggle.com/datasets/jtiptj/chest-xray-pneumoniacovid19tuberculosis
+The script automatically selects GPU if available.
+
+---
+
+## 📂 Dataset Structure
+
+```
+xyz/
+│
+├── test/
+│   ├── Normal/
+│   └── Tuberculosis/
+│
+├── val/
+│   ├── Normal/
+│   └── Tuberculosis/
+```
+
+Each class folder should contain labeled chest X-ray images.
+
+---
+
+## ⚙️ Methodology
+
+### 1️⃣ Data Preprocessing
+
+* Resize images to 224×224
+* Augmentation:
+
+  * Horizontal flip
+  * Rotation
+  * Color jitter
+* Normalize using ImageNet statistics
+
+### 2️⃣ Model Architecture
+
+* Backbone: MobileNetV2 (pretrained)
+* Modified classifier:
+
+```
+Linear Layer → 1 Output Node
+```
+
+### 3️⃣ Training Setup
+
+* Loss Function: Binary Cross Entropy with Logits
+* Optimizer: Adam
+* Epochs: 10
+* Batch Size: 32
+
+### 4️⃣ Evaluation
+
+* Accuracy tracking
+* Confusion matrix computation
+* Validation loss monitoring
+
+### 5️⃣ Inference
+
+* Model weights saved to `.pth`
+* Reloaded for predictions
+* Interactive CLI input loop
+
+---
+
+## ▶️ Execution Steps
+
+### Train the model
+
+```bash
+python main.py
+```
+
+### Output
+
+* Epoch metrics printed
+* Model saved as:
+
+```
+tb_detection_pytorch_model.pth
+```
+
+### Run Predictions
+
+After training, the script prompts:
+
+```
+Enter the path of the X-ray image
+```
+
+Type `exit` to stop.
+
+---
+
+## 📊 Output Metrics
+
+* Training Accuracy
+* Validation Loss
+* Confusion Matrices
+* Prediction Results
+
+---
+
+## 🔬 Applications
+
+* AI-assisted radiology research
+* Medical imaging experimentation
+* Academic demonstrations
+
+---
+
+## 🚧 Limitations
+
+* Depends on dataset quality
+* Binary classification only
+* Not clinically validated
+
+---
+
+## 🔮 Future Enhancements
+
+* Web deployment (Streamlit)
+* Explainability via Grad-CAM
+* Multi-disease classification
+* ROC/AUC metrics
+* Hyperparameter tuning
+
+---
+
+## ⚠️ Disclaimer
+
+This project is intended strictly for educational and research purposes.
+It must not be used for real medical diagnosis.
+
+---
+
+## 👩‍💻 Author
+
+**Bhoomika Saxena**
+B.Tech — CSE (IoT & Intelligent Systems)
+AI • IoT • Computer Vision
