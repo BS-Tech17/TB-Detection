@@ -134,11 +134,6 @@ to stop inference loop.
 ✔ Use GPU for faster training
 ✔ Maintain balanced dataset if possible
 ✔ Normalize images consistently
-
-✘ Do not use for real medical diagnosis
-✘ Avoid mixing image resolutions without preprocessing
-✘ Avoid interrupting training during weight saving
-
 ---
 
 <h2>🚀 Future Enhancements</h2>
