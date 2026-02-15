@@ -1,6 +1,6 @@
-# 🫁 Tuberculosis Detection from Chest X-Rays using Deep Learning
+# Tuberculosis Detection from Chest X-Rays using Deep Learning
 
-## 📌 Overview
+##  Overview
 
 This project implements a deep learning pipeline for detecting **Tuberculosis (TB)** from chest X-ray images using transfer learning with MobileNetV2 in PyTorch.
 It includes preprocessing, training, validation, evaluation via confusion matrices, and an interactive inference loop for real-time prediction.
